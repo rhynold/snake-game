@@ -3,6 +3,7 @@ const scoreCounter = document.querySelector(".score");
 const highScoreCounter = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 const overlay = document.getElementById('overlay');
+const runDurationDisplay = document.querySelector(".run-duration");
 
 let gameStarted = false;
 let gameOver = false;
@@ -12,6 +13,7 @@ let velocityX = 0, velocityY = 0;
 let snakeBody = [];
 let setIntervalId;
 let score = 0;
+let myTimer;
 
 //* Gets the highscore from local storage
 
@@ -28,12 +30,24 @@ const updateFoodPosition = () => {
 const handleStartGame = () => {
     overlay.style.display = 'none';
     gameStarted = true;
+    velocityX = 1;
     initGame();
+    startTimer();
 };
+
+function startTimer() {
+    let seconds = 0;
+    myTimer = setInterval(function() {
+        seconds++;
+        runDurationDisplay.innerText = `Elapsed Time: ${seconds}`;
+    }, 1000);
+}
+
 overlay.addEventListener('click', handleStartGame);
 
 const handleGameOver = () => {
     clearInterval(setIntervalId);
+    clearInterval(myTimer);
     alert("Game Over! Press OK to replay...");
     location.reload();
 }
