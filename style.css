@@ -46,6 +46,7 @@ body {
 
 .play-board .food {
   background: orange;
+  border-radius: 100px;
 }
 
 .play-board .head {
