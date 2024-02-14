@@ -4,6 +4,7 @@ const highScoreCounter = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 const overlay = document.getElementById('overlay');
 
+let gameStarted = false;
 let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 5;
@@ -26,6 +27,7 @@ const updateFoodPosition = () => {
 
 const handleStartGame = () => {
     overlay.style.display = 'none';
+    gameStarted = true;
     initGame();
 };
 overlay.addEventListener('click', handleStartGame);
@@ -39,18 +41,20 @@ const handleGameOver = () => {
 //* Changes the velocity values based on a key press
 
 const changeDirection = e => {
-    if (e.key === "ArrowUp" && velocityY != 1) {
-        velocityX = 0;
-        velocityY = -1;
-    } else if (e.key === "ArrowDown" && velocityY != -1) {
-        velocityX = 0;
-        velocityY = 1;
-    } else if (e.key === "ArrowLeft" && velocityX != 1) {
-        velocityX = -1;
-        velocityY = 0;
-    } else if (e.key === "ArrowRight" && velocityX != -1) {
-        velocityX = 1;
-        velocityY = 0;
+    if (gameStarted) {
+        if (e.key === "ArrowUp" && velocityY != 1) {
+            velocityX = 0;
+            velocityY = -1;
+        } else if (e.key === "ArrowDown" && velocityY != -1) {
+            velocityX = 0;
+            velocityY = 1;
+        } else if (e.key === "ArrowLeft" && velocityX != 1) {
+            velocityX = -1;
+            velocityY = 0;
+        } else if (e.key === "ArrowRight" && velocityX != -1) {
+            velocityX = 1;
+            velocityY = 0;
+        }
     }
 }
 
