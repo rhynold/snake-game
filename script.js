@@ -2,6 +2,7 @@ const playBoard = document.querySelector(".play-board");
 const scoreCounter = document.querySelector(".score");
 const highScoreCounter = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
+const overlay = document.getElementById('overlay');
 
 let gameOver = false;
 let foodX, foodY;
@@ -22,6 +23,12 @@ const updateFoodPosition = () => {
     foodX = Math.floor(Math.random() * 30) + 1;
     foodY = Math.floor(Math.random() * 30) + 1;
 }
+
+const handleStartGame = () => {
+    overlay.style.display = 'none';
+    initGame();
+};
+overlay.addEventListener('click', handleStartGame);
 
 const handleGameOver = () => {
     clearInterval(setIntervalId);
