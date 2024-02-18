@@ -82,19 +82,17 @@ body {
   align-items: center;
 }
 
-.start-screen {
-  background-color: #535C91;
-  padding: 20px;
+#start-button {
+  padding: 12px;
+  font-size: 24px;
+  border: none;
   border-radius: 10px;
-  text-align: center;
+  background-color: #9290C3;
   cursor: pointer;
 }
-.start-screen:hover {
+
+#start-button:hover {
   background-color: orangered;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
 }
 
 .modal {
@@ -124,8 +122,8 @@ body {
 }
 
 #play-again {
-  width: 100px;
-  padding: 10px;
+  font-size: 24px;
+  padding: 12px;
   margin-top: 10px;
   background-color: #9290C3;
   border: none;
