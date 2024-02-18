@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #9290C3;
+  background-color: black;
 }
 
 .container {
@@ -97,7 +97,45 @@ body {
   cursor: pointer;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
 
+.modal-content {
+  background-color: #1B1A55;
+  color: #9290C3;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 50%;
+  max-width: 400px;
+}
+
+#play-again {
+  width: 100px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #9290C3;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#play-again:hover {
+  background-color: orangered;
+}
 
 @media screen and (max-width: 800px) {
   .container {

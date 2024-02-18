@@ -45,11 +45,33 @@ function startTimer() {
 
 overlay.addEventListener('click', handleStartGame);
 
+// const handleGameOver = () => {
+//     clearInterval(setIntervalId);
+//     clearInterval(myTimer);
+//     alert("Game Over! Press OK to replay...");
+//     location.reload();
+// }
+
 const handleGameOver = () => {
     clearInterval(setIntervalId);
     clearInterval(myTimer);
-    alert("Game Over! Press OK to replay...");
-    location.reload();
+
+    // Show modal
+    const modal = document.getElementById('modal');
+    const modalScore = document.getElementById('modal-score');
+    const modalHighScore = document.getElementById('modal-high-score');
+    const modalTime = document.getElementById('modal-time');
+
+    modalScore.textContent = score;
+    modalHighScore.textContent = highScore;
+    modalTime.textContent = runDurationDisplay.innerText.split(' ')[2];
+
+    modal.style.display = 'block';
+    
+    const playAgainButton = document.getElementById('play-again');
+    playAgainButton.onclick = () => {
+        location.reload();
+    };
 }
 
 //* Changes the velocity values based on a key press
