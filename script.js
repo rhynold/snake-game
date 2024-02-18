@@ -4,6 +4,12 @@ const highScoreCounter = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 const overlay = document.getElementById('overlay');
 const runDurationDisplay = document.querySelector(".run-duration");
+const modal = document.getElementById('modal');
+const modalScore = document.getElementById('modal-score');
+const modalHighScore = document.getElementById('modal-high-score');
+const modalTime = document.getElementById('modal-time');
+const playAgainButton = document.getElementById('play-again');
+const startButton = document.getElementById('start-button');
 
 let gameStarted = false;
 let gameOver = false;
@@ -43,32 +49,20 @@ function startTimer() {
     }, 1000);
 }
 
-overlay.addEventListener('click', handleStartGame);
+// overlay.addEventListener('click', handleStartGame);
+startButton.addEventListener('click', handleStartGame);
 
-// const handleGameOver = () => {
-//     clearInterval(setIntervalId);
-//     clearInterval(myTimer);
-//     alert("Game Over! Press OK to replay...");
-//     location.reload();
-// }
 
 const handleGameOver = () => {
     clearInterval(setIntervalId);
     clearInterval(myTimer);
-
-    // Show modal
-    const modal = document.getElementById('modal');
-    const modalScore = document.getElementById('modal-score');
-    const modalHighScore = document.getElementById('modal-high-score');
-    const modalTime = document.getElementById('modal-time');
 
     modalScore.textContent = score;
     modalHighScore.textContent = highScore;
     modalTime.textContent = runDurationDisplay.innerText.split(' ')[2];
 
     modal.style.display = 'block';
-    
-    const playAgainButton = document.getElementById('play-again');
+
     playAgainButton.onclick = () => {
         location.reload();
     };
