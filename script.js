@@ -41,6 +41,8 @@ const handleStartGame = () => {
     startTimer();
 };
 
+//* Creates a timer that starts when the game starts to display the elapsed time.
+
 function startTimer() {
     let seconds = 0;
     myTimer = setInterval(function() {
@@ -49,9 +51,7 @@ function startTimer() {
     }, 1000);
 }
 
-// overlay.addEventListener('click', handleStartGame);
 startButton.addEventListener('click', handleStartGame);
-
 
 const handleGameOver = () => {
     clearInterval(setIntervalId);
@@ -60,9 +60,8 @@ const handleGameOver = () => {
     modalScore.textContent = score;
     modalHighScore.textContent = highScore;
     modalTime.textContent = runDurationDisplay.innerText.split(' ')[2];
-
     modal.style.display = 'block';
-
+    
     playAgainButton.onclick = () => {
         location.reload();
     };
